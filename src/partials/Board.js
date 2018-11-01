@@ -6,6 +6,7 @@ export default class Board {
     constructor(width, height) {
         this.width = width;
         this.height = height;
+
     }
     render(svg) {
         //...
@@ -25,5 +26,6 @@ export default class Board {
         line.setAttributeNS(null, 'stroke-width', '4');
         svg.appendChild(rect);
         svg.appendChild(line);
+
     }
 }
