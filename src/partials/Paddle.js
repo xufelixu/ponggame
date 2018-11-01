@@ -21,7 +21,7 @@ export default class Paddle {
 
                     break;
                 case down:
-                    this.down();
+                    this.down()
                     break;
             }
         });
@@ -30,14 +30,16 @@ export default class Paddle {
 
     up() {
 
-        console.log('up');
+        this.y = Math.max(this.y, 0);
+        //this.y =Math.max (0,[this.y-this.speed]);
         this.y -= this.speed;
 
     }
 
     down() {
 
-        console.log('down');
+        this.y = Math.min(this.y, 256 - this.height);
+        //this.y=Math.min([this.boardHeight -this.height],[this.y+this.speed]);
         this.y += this.speed;
 
     }
