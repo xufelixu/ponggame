@@ -30,8 +30,16 @@ export default class Game {
 			((this.height - this.paddleHeight) / 2),
 			KEYS.a,
 			KEYS.z
-		);
-		console.log(this.player1);
+		)
+		this.player2 = new Paddle(
+			this.height,
+			this.paddleWidth,
+			this.paddleHeight,
+			(this.width - this.boardGap - this.paddleWidth),
+			((this.height - this.paddleHeight) / 2),
+			KEYS.up,
+			KEYS.down
+		)
 
 		//end of constructor 
 	}
@@ -45,7 +53,7 @@ export default class Game {
 		this.gameElement.appendChild(svg);
 		this.board.render(svg);
 		this.player1.render(svg);
-		//this.player2.render(svg);
+		this.player2.render(svg);
 	}
 
 }
