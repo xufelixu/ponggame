@@ -6,6 +6,7 @@ import {
 import Board from "./Board";
 import Paddle from "./Paddle";
 import Ball from "./Ball";
+import Score from "./Score";
 
 export default class Game {
 
@@ -39,7 +40,8 @@ export default class Game {
 			this.boardGap,
 			((this.height - this.paddleHeight) / 2),
 			KEYS.a,
-			KEYS.z
+			KEYS.z,
+			"player1"
 		)
 
 		//Player 2
@@ -50,13 +52,17 @@ export default class Game {
 			(this.width - this.boardGap - this.paddleWidth),
 			((this.height - this.paddleHeight) / 2),
 			KEYS.up,
-			KEYS.down
+			KEYS.down,
+			"player2"
 		)
+
+
+		this.score1 = new Score(this.width / 2 - 100, 30, 30);
+		this.score2 = new Score(this.width / 2 + 100, 30, 30);
+
 
 		this.ball = new Ball(8, this.width, this.height);
 		//end of constructor 
-
-
 
 		document.addEventListener("keydown", event => {
 			switch (event.key) {
@@ -64,24 +70,16 @@ export default class Game {
 					this.pause = !this.pause;
 					break;
 			}
-		});
+		}); // spaceBar
 
 
 	}
-
-
-
-
 	// More code goes here... render=drew
 	render() {
 
 		if (this.pause) {
-
-
 			return;
-
-
-		}
+		} //spaceBar
 
 
 		this.gameElement.innerHTML = ""; //fix bug on index.js gameloop eg.run console.log 
@@ -93,8 +91,11 @@ export default class Game {
 		this.board.render(svg);
 		this.player1.render(svg);
 		this.player2.render(svg);
-		this.ball.render(svg);
+		this.ball.render(svg, this.player1, this.player2); //for ball.js to access
+		this.score1.render(svg, this.player1.score);
+		this.score2.render(svg, this.player2.score);
 
-	}
+	} //this.ball2.render(svg);
+
 
 }
