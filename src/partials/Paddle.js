@@ -30,16 +30,16 @@ export default class Paddle {
 
     up() {
 
-        this.y = Math.max(this.y, 0);
-        //this.y =Math.max (0,[this.y-this.speed]);
+        //this.y = Math.max(this.y, 0);
+        this.y = Math.max(0, [this.y - this.speed]);
         this.y -= this.speed;
 
     }
 
     down() {
 
-        this.y = Math.min(this.y, 256 - this.height);
-        //this.y=Math.min([this.boardHeight -this.height],[this.y+this.speed]);
+        //this.y = Math.min(this.y, 256 - this.height);
+        this.y = Math.min([this.boardHeight - this.height], [this.y + this.speed]);
         this.y += this.speed;
 
     }

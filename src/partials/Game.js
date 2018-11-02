@@ -7,9 +7,6 @@ import Board from "./Board";
 import Paddle from "./Paddle";
 import Ball from "./Ball";
 
-
-
-
 export default class Game {
 
 	constructor(element, width, height) {
@@ -21,6 +18,7 @@ export default class Game {
 		// Other code goes here...
 		this.gameElement = document.getElementById(this.element);
 		this.board = new Board(this.width, this.height);
+
 
 
 		// Paddle 
