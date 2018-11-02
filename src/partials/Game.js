@@ -74,6 +74,12 @@ export default class Game {
 
 
 	}
+
+
+	champion(svg, player) {
+		this.winner.render(svg, `${player} Wins!!!`);
+		this.pause = true;
+	}
 	// More code goes here... render=drew
 	render() {
 
@@ -94,6 +100,8 @@ export default class Game {
 		this.ball.render(svg, this.player1, this.player2); //for ball.js to access
 		this.score1.render(svg, this.player1.score);
 		this.score2.render(svg, this.player2.score);
+
+
 
 	} //this.ball2.render(svg);
 
