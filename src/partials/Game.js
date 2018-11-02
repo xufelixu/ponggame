@@ -55,9 +55,35 @@ export default class Game {
 
 		this.ball = new Ball(8, this.width, this.height);
 		//end of constructor 
+
+
+
+		document.addEventListener("keydown", event => {
+			switch (event.key) {
+				case KEYS.spaceBar:
+					this.pause = !this.pause;
+					break;
+			}
+		});
+
+
 	}
+
+
+
+
 	// More code goes here... render=drew
 	render() {
+
+		if (this.pause) {
+
+
+			return;
+
+
+		}
+
+
 		this.gameElement.innerHTML = ""; //fix bug on index.js gameloop eg.run console.log 
 		let svg = document.createElementNS(SVG_NS, "svg");
 		svg.setAttributeNS(null, 'width', this.width);
@@ -68,6 +94,7 @@ export default class Game {
 		this.player1.render(svg);
 		this.player2.render(svg);
 		this.ball.render(svg);
+
 	}
 
 }

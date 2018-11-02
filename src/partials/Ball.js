@@ -14,6 +14,13 @@ export default class Ball {
     }
 
     reset() {
+
+
+        this.ax = -0.01;
+        this.ay = 0.01;
+
+
+
         this.x = this.boardWidth / 2;
         this.y = this.boardHeight / 2;
         this.vy = 0;
@@ -50,6 +57,9 @@ export default class Ball {
     }
 
     render(svg) {
+
+        this.vx += this.ax;
+        this.vy += this.ay;
 
         this.x += this.vx;
         this.y += this.vy;
