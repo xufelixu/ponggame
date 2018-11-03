@@ -87,6 +87,7 @@ export default class Ball {
         player.score++
         this.reset();
         console.log(player.score); //which player and using ++
+        //if (this.player1.score === 1) {}
     }
 
     render(svg, player1, player2) {
@@ -114,7 +115,7 @@ export default class Ball {
         circle.setAttributeNS(null, 'r', this.radius);
         circle.setAttributeNS(null, 'cx', this.x); // x of the centre point
         circle.setAttributeNS(null, 'cy', this.y); // y of the centre point
-        circle.setAttributeNS(null, 'fill', "white");
+        circle.setAttributeNS(null, 'fill', "blue");
         svg.appendChild(circle);
 
     }

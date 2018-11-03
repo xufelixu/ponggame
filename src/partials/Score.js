@@ -21,6 +21,8 @@ export default class Score {
         text.textContent = score;
         svg.appendChild(text);
 
+
+
     }
 
 }

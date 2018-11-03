@@ -7,6 +7,7 @@ import Board from "./Board";
 import Paddle from "./Paddle";
 import Ball from "./Ball";
 import Score from "./Score";
+import Winner from './Winner'
 
 export default class Game {
 
@@ -59,6 +60,7 @@ export default class Game {
 
 		this.score1 = new Score(this.width / 2 - 100, 30, 30);
 		this.score2 = new Score(this.width / 2 + 100, 30, 30);
+		this.winner = new Winner(this.width / 2 - 150, 40, 40);
 
 
 		this.ball = new Ball(8, this.width, this.height);
@@ -75,11 +77,11 @@ export default class Game {
 
 	}
 
-
-	champion(svg, player) {
-		this.winner.render(svg, `${player} Wins!!!`);
+	loser(svg, player) {
+		this.winner.render(svg, `${player} WIN `);
 		this.pause = true;
 	}
+
 	// More code goes here... render=drew
 	render() {
 
@@ -101,9 +103,12 @@ export default class Game {
 		this.score1.render(svg, this.player1.score);
 		this.score2.render(svg, this.player2.score);
 
-
-
-	} //this.ball2.render(svg);
+		if (this.player1.score === 1) {
+			this.loser(svg, 'Player1')
+		} else if (this.player2.score === 1) {
+			this.loser(svg, 'Player2')
+		}
+	}
 
 
 }
